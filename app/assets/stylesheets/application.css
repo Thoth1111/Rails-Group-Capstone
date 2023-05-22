@@ -17,3 +17,9 @@
 input {
   width: 100%;
 }
+
+.text-btn {
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+}

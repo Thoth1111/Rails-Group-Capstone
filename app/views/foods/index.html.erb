@@ -6,7 +6,7 @@
   link_to "Add Food", 
   new_food_path, 
   class: "button",
-  style: "width: 100px; margin-left: auto;"
+  style: "margin-left: auto;"
 %>
 
 <table>
@@ -19,14 +19,22 @@
     </tr>
   </thead>
   <tbody>
+    <% if @foods.empty? %>
+      <tr>
+        <td colspan="4">
+          <p class="padding: 4rem">
+          No foods found
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    
     <% @foods.each do |food| %>
       <tr>
         <td><%= food.name %></td>
         <td><%= food.measurement_unit %></td>
         <td><%= food.price %></td>
-        <td>
-          <%= link_to "Delete", food, method: :delete, data: { confirm: "Are you sure?" } %>
-        </td>
+        <td><%= button_to "Delete", food, method: :delete, class: "text-btn" %></td>
       </tr>
     <% end %>
 </table>
