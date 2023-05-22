@@ -2,12 +2,16 @@
 
 <h1>Recipes</h1>
 
-<div id="recipes">
+<div>
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <article class="listed-recipe">
+      <div style="display: flex; flex-direction: column;">
+        <h3><%= link_to recipe.name, recipe_path(recipe), style: "text-decoration: none;" %></h3>
+        <%= link_to "REMOVE", recipe_path(recipe), data: {turbo_method: :delete, turbo_confirm: "Delete recipe?",
+        turbo_action: "click->delete#deleteComment"} %>
+      </div>
+      <span><%= truncate(recipe.description, length: 70, separator: ' ') %></span>
+    </article>
   <% end %>
 </div>
 
