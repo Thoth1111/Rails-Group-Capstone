@@ -2,13 +2,33 @@
 
 <h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
-</div>
+<%= 
+  link_to "Add Food", 
+  new_food_path, 
+  class: "button",
+  style: "width: 100px; margin-left: auto;"
+%>
 
-<%= link_to "New food", new_food_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td>
+          <%= link_to "Delete", food, method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+</table>
+  
+
