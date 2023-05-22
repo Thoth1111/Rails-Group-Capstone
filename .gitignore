@@ -37,3 +37,6 @@
 
 #Ignore Gemfile.lock
 Gemfile.lock
+
+#Ignore personal notes folder
+/Al_notes
