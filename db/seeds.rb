@@ -1,5 +1,7 @@
 user = User.create(
-  name: 'User'
+  name: 'Admin',
+  email: 'admin@gmail.com',
+  password: 'password'
 )
 
 apple = Food.create(
