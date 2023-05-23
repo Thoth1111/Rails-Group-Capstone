@@ -68,3 +68,13 @@
   input[type="checkbox"]:checked + .toggle-slider:before {
     transform: translateX(20px);
   }
+
+input {
+  width: 100%;
+}
+
+.text-btn {
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+}

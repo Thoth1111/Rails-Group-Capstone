@@ -1,0 +1,19 @@
+<h1>Public Recipes</h1>
+
+<div id="public_recipes">
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe, style:" color: var(--text); text-decoration:none;" do %>
+      <article 
+        style="display: grid; grid-template-columns: 1fr 1fr;">
+        <div>
+          <h4 style="margin: 0"><%= recipe.name %></h4>
+          <p>By: <%= recipe.user.name %></p>
+        </div>
+        <div>
+          <p>Total Food Items: <%= recipe.foods.size %></p>
+          <p>Total Price: $<%= recipe.foods.sum(:price) %></p>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+</div>

@@ -13,8 +13,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
+    <p style="margin: 0; padding: 0; color: var(--accent);"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <% if user_signed_in? %>
+      <%= 
+        button_to "Logout(Remove Later)", 
+        destroy_user_session_path, 
+        method: :delete,
+        style: "background: red; color: white;"
+      %>
+    <% end %>
   </body>
 </html>
