@@ -18,6 +18,35 @@ input {
   width: 100%;
 }
 
+.menu {
+  background: transparent;
+  padding: 0;
+  z-index: 10;
+  right: 0;
+  position: absolute;
+}
+
+.menu svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.menu-list {
+  position: absolute;
+  top: -100vh;
+  right: 0;
+  overflow: hidden;
+  z-index: 11;
+  transition: all 0.3s ease;
+  background-color: var(--bg);
+}
+
+.menu:active + .menu-list,
+.menu:focus + .menu-list,
+.menu-list:hover {
+  top: 10px;
+}
+
 .text-btn {
   background: none;
   color: var(--accent);
