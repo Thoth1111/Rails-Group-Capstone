@@ -40,3 +40,4 @@ Gemfile.lock
 
 #Ignore personal notes folder
 /Al_notes
+/node_modules
