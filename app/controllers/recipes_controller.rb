@@ -32,6 +32,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    @recipe.save
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.destroy
