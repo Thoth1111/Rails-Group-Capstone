@@ -1,14 +1,40 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
-</div>
+<%= 
+  link_to "Add Food", 
+  new_food_path, 
+  class: "button",
+  style: "margin-left: auto;"
+%>
 
-<%= link_to "New food", new_food_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @foods.empty? %>
+      <tr>
+        <td colspan="4">
+          <p class="padding: 4rem">
+          No foods found
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td><%= button_to "Delete", food, method: :delete, class: "text-btn" %></td>
+      </tr>
+    <% end %>
+</table>
+  
+
