@@ -1,6 +1,12 @@
 user = User.create(
-  name: 'Admin',
-  email: 'admin@gmail.com',
+  name: 'John Doe',
+  email: 'user1@gmail.com',
+  password: 'password'
+)
+
+user2 = User.create(
+  name: 'Ivan Ivanov',
+  email: 'user2@gmail.com',
   password: 'password'
 )
 
@@ -17,7 +23,7 @@ pineapple = Food.create(
   measurement_unit: 'grams',
   price: 1,
   quantity: 100,
-  user_id: user.id
+  user_id: user2.id
 )
 
 chicken_breast = Food.create(
@@ -25,7 +31,7 @@ chicken_breast = Food.create(
   measurement_unit: 'units',
   price: 10,
   quantity: 10,
-  user_id: user.id
+  user_id: user2.id
 )
 
 simple_dish = Recipe.create(
@@ -34,7 +40,7 @@ simple_dish = Recipe.create(
   cooking_time: '10 minutes',
   description: 'A simple dish',
   public: true,
-  user_id: 1
+  user_id: user.id
 )
 
 too_much = Recipe.create(
@@ -43,7 +49,7 @@ too_much = Recipe.create(
   cooking_time: '10 minutes',
   description: 'A complex dish',
   public: true,
-  user_id: user.id
+  user_id: user2.id
 )
 
 high_roller = Recipe.create(
