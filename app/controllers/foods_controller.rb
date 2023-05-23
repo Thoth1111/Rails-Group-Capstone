@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
   # GET /general_shopping_list
   def general_shopping_list
     my_foods = current_user.foods
-    required_foods = current_user.recipes.map(&:foods).flatten
+    required_foods = current_user.recipes.includes(:foods).map(&:foods).flatten
 
     @missing_foods = required_foods.reject do |required_food|
       my_foods.any? { |my_food| my_food.name == required_food.name }
