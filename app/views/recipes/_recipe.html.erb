@@ -1,32 +1,31 @@
 <div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
+  <h2 style="text-align: center;">
     <%= recipe.name %>
-  </p>
+  </h2>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
-
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
-
+  <div class="sided">
+    <div>
+      <p>
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time %>
+      </p>
+      <p>
+        <strong>Cooking time:</strong>
+        <%= recipe.cooking_time %>
+      </p>
+      <p>
+        <strong>Description:</strong>
+        <%= recipe.description %>
+      </p>
+    </div>
+    <div>
+      <%= form_for @recipe, remote: true do |f| %>
+        <label class="sided">
+          <%= f.label :public, style: "display: block" %>
+          <%= f.check_box :public, id: "recipe-public-toggle", disabled: true %>
+          <span class="toggle-slider"></span>
+        </label>
+      <% end %>
+    </div>
+  </div>
 </div>

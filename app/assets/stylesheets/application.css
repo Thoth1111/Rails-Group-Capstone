@@ -14,8 +14,66 @@
  *= require_self
  */
 
+.toggle-slider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
 input {
   width: 100%;
+}
+
+input[type="checkbox"]:checked + .toggle-slider {
+  background-color: #5cb85c;
+}
+
+input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.listed-recipe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe-food-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #5cb85c;
+  width: 100%;
+}
+
+.sided {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+#recipe-public-toggle {
+  visibility: hidden;
 }
 
 .text-btn {
