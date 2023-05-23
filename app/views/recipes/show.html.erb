@@ -9,28 +9,27 @@
     <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "button" %>
 </div>
 
-<section class:"recipe-food-section">
-  <table>
-    <thead>
+<hr style:"background-color: grey;">
+<table style: "margin: 0 auto;">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
       <tr>
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Value</th>
-        <th>Actions</th>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td><%= recipe_food.food.price %></td>
+        <td class="sided">
+          <%= link_to "Modify", edit_recipe_food_path(recipe_food) %>
+          <%= link_to "Remove", recipe_food_path(recipe_food), data: {turbo_method: :delete} %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @recipe.recipe_foods.each do |recipe_food| %>
-        <tr>
-          <td><%= recipe_food.food.name %></td>
-          <td><%= recipe_food.quantity %></td>
-          <td><%= recipe_food.food.price %></td>
-          <td class="sided">
-            <%= link_to "Modify", edit_recipe_food_path(recipe_food) %>
-            <%= link_to "Remove", recipe_food_path(recipe_food), data: {turbo_method: :delete} %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</section>
+    <% end %>
+  </tbody>
+</table>

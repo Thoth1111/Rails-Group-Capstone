@@ -21,8 +21,10 @@
 }
 
 .recipe-food-section {
-  display: flex;
-  justify-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #5cb85c;
+  width: 100%;
 }
 
 .sided {
