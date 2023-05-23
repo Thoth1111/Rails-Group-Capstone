@@ -1,0 +1,34 @@
+<h1>Shopping List</h1>
+
+<span> Amount of food items to buy: <%= @total_items %></span>
+<span> Total value of food needed: $<%= @total_price %></span>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @missing_foods.empty? %>
+      <tr>
+        <td colspan="4">
+          <p class="padding: 4rem">
+            All foods are available!
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    
+    <% @missing_foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.quantity %></td>
+        <td><%= food.price %></td>
+      </tr>
+    <% end %>
+</table>
+  
+

@@ -6,6 +6,21 @@ class FoodsController < ApplicationController
     @foods = current_user ? current_user.foods : []
   end
 
+  # GET /general_shopping_list
+  def general_shopping_list
+    my_foods = current_user.foods
+    required_foods = current_user.recipes.map(&:foods).flatten
+
+    @missing_foods = required_foods.reject do |required_food|
+      my_foods.any? { |my_food| my_food.name == required_food.name }
+    end
+
+    @missing_foods = merge_duplicate_foods(@missing_foods)
+
+    @total_items = @missing_foods.size
+    @total_price = @missing_foods.reduce(0) { |sum, food| sum + (food.price * food.quantity) }
+  end
+
   # GET /foods/1 or /foods/1.json
   def show; end
 
@@ -56,6 +71,15 @@ class FoodsController < ApplicationController
   end
 
   private
+
+  def merge_duplicate_foods(all_foods)
+    all_foods.group_by(&:name).map do |_, foods|
+      foods.reduce do |merged_food, food|
+        merged_food.quantity += food.quantity
+        merged_food
+      end
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_food
