@@ -5,7 +5,7 @@ one:
   preparation_time: MyString
   cooking_time: MyString
   description: MyString
-  public: false
+  public: true
   user: one
 
 two:
@@ -13,5 +13,5 @@ two:
   preparation_time: MyString
   cooking_time: MyString
   description: MyString
-  public: false
+  public: true
   user: two
