@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @recipe %>
 
 <div>
@@ -28,8 +26,8 @@
           <td><%= recipe_food.quantity %></td>
           <td><%= recipe_food.food.price %></td>
           <td class="sided">
-            <%= link_to "Modify", edit_recipe_foods_path(recipe_food), class: "link" %>
-            <%= link_to "Remove", recipe_foods_path(recipe_food), data: {turbo_method: :delete}, class: "link" %>
+            <%= link_to "Modify", edit_recipe_food_path(recipe_food) %>
+            <%= link_to "Remove", recipe_food_path(recipe_food), data: {turbo_method: :delete} %>
           </td>
         </tr>
       <% end %>

@@ -13,8 +13,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show
-  end
+  def show; end
 
   # GET /recipes/new
   def new
@@ -42,9 +41,7 @@ class RecipesController < ApplicationController
     @recipe.update(public: !@recipe.public)
     @recipe.save
 
-    respond_to do |format|
-      format.js
-    end
+    respond_to(&:js)
   end
 
   # DELETE /recipes/1 or /recipes/1.json
@@ -57,7 +54,7 @@ class RecipesController < ApplicationController
         format.json { head :no_content }
       else
         format.html { redirect_to recipes_path, notice: 'Error deleting recipe' }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity}
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
   end
