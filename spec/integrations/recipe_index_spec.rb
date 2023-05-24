@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipe', type: :feature do
+RSpec.describe 'Recipe', type: :system do
   before(:all) do
     Capybara.reset_sessions!
   end
