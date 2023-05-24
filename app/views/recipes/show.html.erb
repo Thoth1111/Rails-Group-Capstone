@@ -6,7 +6,7 @@
 
 <div class="sided">  
     <%= link_to "Generate shopping list", general_shopping_list_path, class: "button" %>
-    <% if can? :new_recipe_food, @recipe %>
+    <% if @recipe.user == current_user %>
       <%= link_to "Add Ingredient", new_recipe_food_path(@recipe), class: "button" %>
     <% end %>
 </div>
