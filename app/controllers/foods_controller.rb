@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
   # GET /general_shopping_list
   def general_shopping_list
     my_foods = current_user.foods
-    required_foods = current_user.recipes.map(&:foods).flatten
+    required_foods = current_user.recipes.includes(:foods).map(&:foods).flatten
 
     @missing_foods = required_foods.reject do |required_food|
       my_foods.any? { |my_food| my_food.name == required_food.name }
@@ -49,6 +49,7 @@ class FoodsController < ApplicationController
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update
+    authorize! :update, @food
     respond_to do |format|
       if @food.update(**food_params, user_id: current_user.id)
         format.html { redirect_to foods_url(@food), notice: 'Food was successfully updated.' }
@@ -62,6 +63,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
+    authorize! :destroy, @food
     @food.destroy
 
     respond_to do |format|

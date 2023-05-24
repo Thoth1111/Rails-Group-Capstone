@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
   # Get /public_recipes
   def public_recipes
-    @recipes = Recipe.where(public: true).includes(%i[user foods]).order(created_at: :desc)
+    @recipes = Recipe.where(public: true).includes(%i[user]).order(created_at: :desc)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
+    authorize! :create, @recipe
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
@@ -46,6 +47,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    authorize! :destroy, @recipe
     @recipe.destroy
 
     respond_to do |format|

@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-<h3><b>Blog App</b></h3>
+<h3><b>Rails Group Capstone</b></h3>
 </div>
 
 # 📗 Table of Contents
@@ -26,9 +26,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 Blog App <a name="about-project"></a>
+# 📖 Rails Group Capstone <a name="about-project"></a>
 
-The Blog app will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts
+Rails group capstone is a group project to create web based app that conntains user, recipe and recipe food information. A registered user can add foods, create recipes and link foods to recipes. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -44,7 +44,7 @@ The Blog app will be a classic example of a blog website. You will create a full
 
 - **Authentication**
 
-- **API documentation**
+- **Authorization**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,7 +60,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need: ruby 2.7.0 and rails
+In order to run this project you need: rails
 
 ### Setup
 
@@ -95,11 +95,17 @@ rails s
 - Twitter: [@oyhpnayiaw](https://twitter.com/oyhpnayiaw)
 - LinkedIn: [@oyhpnayiaw](https://linkedin.com/in/oyhpnayiaw)
 
+**Alwyn Androvelle**
+
+- Github: [@Thoth1111](https://github.com/Thoth1111)
+- Twitter: [@androvelle](https://twitter.com/androvelle)
+- LinkedIn: [@Alwyn](https://linkedin.com/in/alwyn-androvelle-simiyu)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Live chat**
+- [ ] **Update Methods**
 
 - [ ] **User profile**
 
