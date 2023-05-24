@@ -11,7 +11,7 @@ class Ability
     return unless user.present?
 
     can :destroy, Recipe, user_id: user.id
-    can :read, Recipe do |recipe|
+    can :show, Recipe do |recipe|
       recipe.public? || recipe.user_id == user.id
     end
     can :create, Food, user_id: user.id
