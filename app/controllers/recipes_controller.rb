@@ -22,7 +22,6 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    authorize! :create, @recipe
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
