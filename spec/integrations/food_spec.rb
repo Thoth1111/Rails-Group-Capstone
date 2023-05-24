@@ -10,7 +10,7 @@ RSpec.describe Food, type: :system do
       visit foods_path
 
       if page.current_path == new_user_session_path
-        fill_in 'Email', with: users(:one).email
+        fill_in 'Email', with: users(:two).email
         fill_in 'Password', with: 'password'
         click_button 'Log in'
       end

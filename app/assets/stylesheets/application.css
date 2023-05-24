@@ -67,10 +67,12 @@ input {
   margin: 10px 20px 10px 0;
 }
 
+.menu-list:hover,
 .menu:active + .menu-list,
-.menu:focus + .menu-list,
-.menu-list:hover {
+.menu:focus + .menu-list {
   top: 10px;
+}
+
 input[type="checkbox"]:checked + .toggle-slider {
   background-color: #5cb85c;
 }
