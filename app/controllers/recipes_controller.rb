@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_recipe, only: %i[show destroy]
 
   # GET /recipes or /recipes.json
@@ -23,6 +22,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
+    authorize! :create, @recipe
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    authorize! :destroy, @recipe
     @recipe.destroy
 
     respond_to do |format|

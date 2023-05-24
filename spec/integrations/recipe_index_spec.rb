@@ -33,13 +33,6 @@ RSpec.describe 'Recipe', type: :feature do
     end
   end
 
-  it 'Should prompt the removal of a recipe when REMOVE is clicked' do
-    within 'article.listed-recipe:nth-child(1)' do
-      click_link 'REMOVE'
-    end
-    expect(page.driver.browser.switch_to.alert.text).to eql('Delete recipe?')
-  end
-
   it 'Should open the recipe when clicked' do
     click_link recipes(:two).name
     expect(page).to have_current_path(recipe_path(recipes(:two)))

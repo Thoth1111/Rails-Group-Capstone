@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_food, only: %i[show edit update destroy]
 
   # GET /foods or /foods.json
@@ -50,6 +49,7 @@ class FoodsController < ApplicationController
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update
+    authorize! :update, @food
     respond_to do |format|
       if @food.update(**food_params, user_id: current_user.id)
         format.html { redirect_to foods_url(@food), notice: 'Food was successfully updated.' }
@@ -63,6 +63,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
+    authorize! :destroy, @food
     @food.destroy
 
     respond_to do |format|

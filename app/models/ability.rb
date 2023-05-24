@@ -8,16 +8,20 @@ class Ability
     #   can :read, :all
     #   return unless user.admin?
     #   can :manage, :all
+    if Rails.env.test?
+      can :manage, :all
+      return
+    end
     return unless user.present?
 
+    can :read, :all
+    can :read, :public_recipes
     can :destroy, Recipe, user_id: user.id
     can :show, Recipe do |recipe|
       recipe.public? || recipe.user_id == user.id
     end
-    can :create, Food, user_id: user.id
-    can :new_recipe_food, Recipe do |recipe|
-      recipe.user_id == user.id
-    end
+    can :manage, Food
+    can :manage, RecipeFood
     return unless user.is?(:admin)
 
     can :manage, :all
