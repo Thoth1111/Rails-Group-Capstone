@@ -1,5 +1,8 @@
 <h2>Recipes</h2>
 
+<%= link_to "Add a new recipe", new_recipe_path, class: 'button', style: "margin-left: auto;" %>
+<hr>
+
 <div>
   <% @recipes.each do |recipe| %>
     <article class="listed-recipe">
@@ -13,3 +16,4 @@
     </article>
   <% end %>
 </div>
+

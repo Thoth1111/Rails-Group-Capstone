@@ -21,7 +21,14 @@ class RecipeFoodsController < ApplicationController
   # POST /recipe_foods or /recipe_foods.json
   def create
     id = request.env['HTTP_REFERER'].split('/').last.split('.').last.to_i
-    @recipe_food = RecipeFood.new(**recipe_food_params, recipe_id: id)
+
+    food = Food.find_by(name: recipe_food_params[:food_id])
+
+    if food.nil?
+      food = Food.create(name: recipe_food_params[:food_id], measurement_unit: 'g', price: 1,
+                         quantity: params[:recipe_food][:quantity], user_id: current_user.id)
+    end
+    @recipe_food = RecipeFood.new(**recipe_food_params, food_id: food.id, recipe_id: id)
 
     respond_to do |format|
       if @recipe_food.save
