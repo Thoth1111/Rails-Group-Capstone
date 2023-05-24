@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: 'one@email.com'
+  encrypted_password: '$2a$12$6dgHK60dOCypm4x7Lw3CZOQl3ne2EiGJ8ONcxGkpCfO98KMbU6hla'
+  reset_password_token: 'one'
+  confirmed_at: '2022-01-01 00:00:00'
+
+two:
+  name: MyString
+  email: 'two@email.com'
+  encrypted_password: '$2a$12$6dgHK60dOCypm4x7Lw3CZOQl3ne2EiGJ8ONcxGkpCfO98KMbU6hla'
+  reset_password_token: 'two'
+  confirmed_at: '2022-01-01 00:00:00'

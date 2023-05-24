@@ -1,0 +1,19 @@
+<h2>Recipes</h2>
+
+<%= link_to "Add a new recipe", new_recipe_path, class: 'button', style: "margin-left: auto;" %>
+<hr>
+
+<div>
+  <% @recipes.each do |recipe| %>
+    <article class="listed-recipe">
+      <div style="display: flex; flex-direction: column;">
+        <h4><%= link_to recipe.name, recipe_path(recipe), style: "text-decoration: none;" %></h4>
+        <% if can? :destroy, recipe %>
+          <%= link_to "REMOVE", recipe_path(recipe), data: {turbo_method: :delete} %>
+        <% end %>
+      </div>
+      <span><%= truncate(recipe.description, length: 70, separator: ' ') %></span>
+    </article>
+  <% end %>
+</div>
+
