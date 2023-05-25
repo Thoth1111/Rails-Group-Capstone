@@ -83,6 +83,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
   database: capstone_ror
+  url: <%= ENV["DATABASE_URL"] %>
 
