@@ -69,7 +69,7 @@ test:
 # Instead, provide the password or a full connection URL as an environment
 # variable when you boot the app. For example:
 #
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+  DATABASE_URL="postgres://ror_capstone_znf9_user:aNLYrsgFERjAnnKPD4zFfFOHP5MVS0LL@dpg-chn0n2m7avj3o34g56ig-a/ror_capstone_znf9"
 #
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
@@ -83,6 +83,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  <<: *default
   database: capstone_ror
-  url: <%= ENV["DATABASE_URL"] %>
+ 
 
