@@ -48,9 +48,8 @@ Rails group capstone is a group project to create web based app that conntains u
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ### 🚀 Live Demo -->
-<!---->
-<!-- Coming soon -->
+### 🚀 Live Demo
+Access the development [demo](https://ror-group-capstone.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
